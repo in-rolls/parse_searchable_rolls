@@ -27,14 +27,15 @@ Parse Indian PDF electoral rolls and get a CSV of a list of electors.
 optional arguments:
   -h, --help            show this help message and exit
   -f FILE, --file FILE  path to the specific PDF file to be parsed
-  -d DIR, --dir DIR     Path to directory containing the PDF files
+  -d DIR, --dir DIR     path to directory containing the PDF files
   -s STATE, --state STATE
                         Name of state where PDF document(s) is/are published
   -o FILE, --out FILE   Specify the output file for storing the results 
                         (must be a '.csv' file). The default output file is
                         'Parsed-{timestamp}.csv' in the 'output' directory
   --resume              Allows us to resume parsing if the program was stopped
-                        unexpectedly or intentionally. Only takes effect if being applied on directory (not file) parsing
+                        unexpectedly or intentionally. Only takes effect if a
+                        directory is being parsed
   --version             show program's version number and exit
   --all-states          show all the supported states and exit
 ```
