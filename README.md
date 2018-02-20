@@ -20,39 +20,41 @@ The python script takes as input either path to a specific pdf electoral rolls t
 
 ```
 usage: pdfparser [-h] [-f FILE] [-d DIR] [-s STATE] [-o FILE] [--resume]
-                 [--version]
+                 [--version] [--all-states]
 
-Parse Indian pdf electoral rolls and get a CSV of a list of electors.
+Parse Indian PDF electoral rolls and get a CSV of a list of electors.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -f FILE, --file FILE  Path to a specific PDF file that needs to be parsed
+  -f FILE, --file FILE  path to the specific PDF file to be parsed
   -d DIR, --dir DIR     Path to directory containing the PDF files
   -s STATE, --state STATE
                         Name of state where PDF document(s) is/are published
-  -o FILE, --out FILE   Specify the output file for storing parsed result 
-                        (must be a '.csv' file), or use default output file,
-                        'Parsed-{timestamp}.csv' located in 'output' directory
+  -o FILE, --out FILE   Specify the output file for storing the results 
+                        (must be a '.csv' file). The default output file is
+                        'Parsed-{timestamp}.csv' in the 'output' directory
   --resume              Allows us to resume parsing if the program was stopped
                         unexpectedly or intentionally. Only takes effect if being applied on directory (not file) parsing
   --version             show program's version number and exit
+  --all-states          show all the supported states and exit
 ```
 
 **States for which we have scripts**
 
-* [Andaman and Nicobar Islands](pdfparser/rolls/andaman.py)
-* [Andhra Pradesh](pdfparser/rolls/andhra.py)
-* [Arunachal Pradesh](pdfparser/rolls/arunachal.py)
-* [Dadra and Nagar Haveli](pdfparser/rolls/dadra.py)
-* [Daman and Diu](pdfparser/rolls/daman.py)
-* [Goa](pdfparser/rolls/goa.py)
-* [Jammu and Kashmir](pdfparser/rolls/jk.py)
-* [Kerala](pdfparser/rolls/kerala.py)
-* [Manipur](pdfparser/rolls/manipur.py)
-* [Meghalaya](pdfparser/rolls/meghalaya.py)
-* [Nagaland](pdfparser/rolls/nagaland.py)
-* [Puducherry](pdfparser/rolls/puducherry.py)
-* [Sikkim](pdfparser/rolls/sikkim.py)
+* [Andaman and Nicobar Islands](pdfparser/modules/rolls/andaman.py)
+* [Andhra Pradesh](pdfparser/modules/rolls/andhra.py)
+* [Arunachal Pradesh](pdfparser/modules/rolls/arunachal.py)
+* [Dadra and Nagar Haveli](pdfparser/modules/rolls/dadra.py)
+* [Daman and Diu](pdfparser/modules/rolls/daman.py)
+* [Delhi](pdfparser/modules/rolls/delhi.py)
+* [Goa](pdfparser/modules/rolls/goa.py)
+* [Jammu and Kashmir](pdfparser/modules/rolls/jk.py)
+* [Kerala](pdfparser/modules/rolls/kerala.py)
+* [Manipur](pdfparser/modules/rolls/manipur.py)
+* [Meghalaya](pdfparser/modules/rolls/meghalaya.py)
+* [Nagaland](pdfparser/modules/rolls/nagaland.py)
+* [Puducherry](pdfparser/modules/rolls/puducherry.py)
+* [Sikkim](pdfparser/modules/rolls/sikkim.py)
 
 ## Checks
 
@@ -75,5 +77,3 @@ For native language electoral rolls:
 ## License
 
 The scripts are released under the [MIT License](https://opensource.org/licenses/MIT).
-
-
