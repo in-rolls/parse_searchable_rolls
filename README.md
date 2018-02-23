@@ -4,9 +4,9 @@ The scripts in this repository parse Indian Electoral Rolls. For more informatio
 
 ### Parsing (Readable) English Electoral Roll PDFs
 
-Andaman & Nicobar Islands, Andhra Pradesh, Arunachal Pradesh, Dadra & Nagar Haveli, Daman & Diu, Goa, Jammu & Kashmir, Kerala, Manipur, Meghalaya, Mizoram, Nagaland, NCT OF Delhi, Puducherry, and Sikkim provide electoral rolls in English.
+Andaman & Nicobar Islands, Andhra Pradesh, Arunachal Pradesh, Dadra & Nagar Haveli, Daman & Diu, Goa, Jammu & Kashmir, Kerala, Manipur, Meghalaya, Mizoram, Nagaland, NCT OF Delhi, Puducherry, and Sikkim provide electoral rolls in English. Sikkim, Delhi, and Kerala's electoral rolls aren't readable.
 
-The format of the rolls is similar but not the same so we write a separate scripts for each, relying on some [common functions](pdfparser/rolls/base.py).
+The format of the rolls is similar but not the same so we write a separate scripts for each, relying on some common functions like [pdfparser/rolls/base.py](pdfparser/rolls/base.py), etc.
 
 **Requirements**
 
@@ -47,15 +47,12 @@ optional arguments:
 * [Arunachal Pradesh](pdfparser/modules/rolls/arunachal.py)
 * [Dadra and Nagar Haveli](pdfparser/modules/rolls/dadra.py)
 * [Daman and Diu](pdfparser/modules/rolls/daman.py)
-* [Delhi](pdfparser/modules/rolls/delhi.py)
 * [Goa](pdfparser/modules/rolls/goa.py)
 * [Jammu and Kashmir](pdfparser/modules/rolls/jk.py)
-* [Kerala](pdfparser/modules/rolls/kerala.py)
 * [Manipur](pdfparser/modules/rolls/manipur.py)
 * [Meghalaya](pdfparser/modules/rolls/meghalaya.py)
 * [Nagaland](pdfparser/modules/rolls/nagaland.py)
 * [Puducherry](pdfparser/modules/rolls/puducherry.py)
-* [Sikkim](pdfparser/modules/rolls/sikkim.py)
 
 ## Checks
 
