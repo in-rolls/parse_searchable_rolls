@@ -31,9 +31,9 @@ class DadraPatterns(Patterns):
 		number=r'^(\d+)',
 		name=r'Age :\n\d+\n([^\n]+)',
 		relativeName=r'Age :\n\d+\n[^\n]+\n([^\n]+)',
-		house=r'([^\n]+)(?=\n[A-Z]{1,5}[0-9/]+)',
+		house=r'([^\n]+)(?=\n[A-Z]{2,5}[0-9]{2,}[0-9/]*)',
 		age=r'(?<=Age :\n)(\d+)',
-		sex=r'(?<=\'s Name\n)([^\n]+)(?=\n\d+\n)'
+		sex=r'\n(Male|Female)\n'
 	)
 
 

@@ -38,7 +38,7 @@ class Patterns:
 			g_netThird=None,
 			g_netTotal=None,
 			e_number=None,
-			e_id=self.__compile(r'([A-Z]{1,5}[0-9/]+)'),
+			e_id=self.__compile(r'([A-Z]{2,5}/?[0-9]{2,}[0-9/]*)'),
 			e_name=None,
 			e_house=None,
 			e_age=None,
@@ -171,6 +171,7 @@ class Patterns:
 class Reader:
 
 	pat = None
+	general_pages = None
 
 	def __init__(self, path, cls_elector=None, cls_general=None):
 		try:
@@ -187,7 +188,11 @@ class Reader:
 			raise AttributeError('Patterns instance not found')
 
 		cls_general = cls_general or GeneralInfo
-		self.general = cls_general(text=parsed.get_page(1), patterns=self.pat)
+		if self.general_pages:
+			g_text = '\n'.join([parsed.get_page(i) for i in self.general_pages])
+		else:
+			g_text = parsed.get_page(1)
+		self.general = cls_general(text=g_text, patterns=self.pat)
 		if not self.general.has_data():
 			raise RollParseError('Unable to parse/find General Info')
 

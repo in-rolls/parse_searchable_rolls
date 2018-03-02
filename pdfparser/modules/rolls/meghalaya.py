@@ -18,7 +18,7 @@ class MeghalayaPatterns(Patterns):
 	)
 
 	general_patterns = dict(
-		state=r'\n[A-Z\d]+ - ([^\n]+)(?=\nPage 1 of \d+\n)',
+		state=r'(?<=\n)S\d+ *- *([^\n]+)',
 		acName=r'([^\n]+)\n[^\n]+\n[^\n]+\n[^\n]+(?=\nPage 1 of \d+\n)',
 		partNo=r'Net Electors\n\d+\n(\d+)',
 		year=r'Year of Revision\n: (\d+)',

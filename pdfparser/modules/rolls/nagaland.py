@@ -56,7 +56,7 @@ class NagalandPatterns(Patterns):
 			'*': r'^(\d+)(?=\n[A-Z .-]+\n)'
 		},
 		age={
-			'main': r'(?<=\'s Name : )[^a-z]+\n(\d+)(?=$|\n)',
+			'main': r'(?<=\'s Name : )[^\n]+\n(\d+)(?=$|\n)',
 			'*': r'(\d+)(?=\n[NM]\n)'
 		},
 		sex={

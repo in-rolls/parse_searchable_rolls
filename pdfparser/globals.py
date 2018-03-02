@@ -23,7 +23,7 @@ OUTPUT_FILE_TS = '%Y%m%d-%H%M%S'
 OUTPUT_FILE = os.path.join(APP_PATH, 'output/Parsed-{}.csv')
 OutputRow = namedtuple(
 	'OutputRow',
-	'number id elector_name father_or_husband_name has_husband house_no age sex ac_name part_no year state filename main_town \
-police_station mandal revenue_division district pin_code polling_station_name polling_station_address \
+	'number id elector_name father_or_husband_name has_husband house_no age sex ac_name part_no year state filename \
+main_town police_station mandal revenue_division district pin_code polling_station_name polling_station_address \
 net_electors_male net_electors_female net_electors_third_gender net_electors_total'
 )

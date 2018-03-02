@@ -9,6 +9,7 @@ from .manipur import ManipurPDF
 from .meghalaya import MeghalayaPDF
 from .nagaland import NagalandPDF
 from .mizoram import MizoramPDF
+from .puducherry import PuducherryPDF
 from .errors import RollParseError
 
 __all__ = [
@@ -23,6 +24,7 @@ __all__ = [
 	'MeghalayaPDF',
 	'NagalandPDF',
 	'MizoramPDF',
+	'PuducherryPDF',
 	'RollParseError'
 ]
 
