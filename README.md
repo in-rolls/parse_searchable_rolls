@@ -40,7 +40,14 @@ optional arguments:
   --all-states          show all the supported states and exit
 ```
 
-**States for which we have scripts**
+**Examples**
+
+```
+./pdfparser -d manipur/ -s manipur -o manipur.csv
+./pdfparser --all-states
+```
+
+**States**
 
 * [Andaman and Nicobar Islands](pdfparser/modules/rolls/andaman.py)
 * [Andhra Pradesh](pdfparser/modules/rolls/andhra.py)
@@ -51,24 +58,31 @@ optional arguments:
 * [Jammu and Kashmir](pdfparser/modules/rolls/jk.py)
 * [Manipur](pdfparser/modules/rolls/manipur.py)
 * [Meghalaya](pdfparser/modules/rolls/meghalaya.py)
+* [Mizoram](pdfparser/modules/rolls/mizoram.py)
 * [Nagaland](pdfparser/modules/rolls/nagaland.py)
 * [Puducherry](pdfparser/modules/rolls/puducherry.py)
 
 ## Checks
 
-To verify that the electoral rolls have been parsed correctly, we institute a few checks. For English language rolls:
+To verify that the electoral rolls have been parsed correctly, we institute a few checks. For English language rolls, we checked:
 
-1. Where columns X and Y must sum to Z, we check for that. We also check for the number of characters in names to flag unusually long or short names.
+1. If age a reasonable number?
+2. How many characters are there in 'ID'? 
+3. How many characters does pincode have?
+4. How many characters does elector_name have?
+5. What unique values does the sex field have? 
+6. What unique values does main_town, district, ac_name, mandal, etc. have? 
+7. Do the numbers in total_electors field match up?
 
-2. For 18 of the 34 states on which we have data, we scraped metadata about polling stations. For instance, https://github.com/in-rolls/electoral_rolls/tree/master/kerala has a CSV that captures the metadata from the website. Some of the columns we parse can be checked against that. Addition data from https://github.com/in-rolls/poll-station-metadata can potentially also be used.
+### Future checks:
 
-3. The electoral rolls have some totals within them. We scrape those. For instance, total number of women, men, etc. And we can re-derive those numbers from the scraped columns. We check for that.
+1. For 18 of the 34 states on which we have data, we scraped metadata about polling stations. For instance, https://github.com/in-rolls/electoral_rolls/tree/master/kerala has a CSV that captures the metadata from the website. Some of the columns we parse can be checked against that. Addition data from https://github.com/in-rolls/poll-station-metadata can potentially also be used.
 
-4. Ad-hoc checking
- 
-5. Second parsing script and tallying results against each other.
+2. The electoral rolls have some totals within them. We scrape those. For instance, total number of women, men, etc. And we can re-derive those numbers from the scraped columns. We check for that.
 
-For native language electoral rolls:
+3. Second parsing script and tallying results against each other.
+
+### For native language electoral rolls:
 
 1. we also capitalize on the fact that some states have both native and English language rolls. And where they are available, we have downloaded both. And we can compare some of the columns against each other.
 
