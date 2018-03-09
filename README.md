@@ -14,7 +14,7 @@ poppler-utils (>=0.57)
 
 **Input and Output**
 
-The python script takes as input either path to a specific pdf electoral rolls that needs to be parsed or a directory of English language electoral roll pdfs, and produces a CSV with the following columns: `number (top left box in the elector field), id, elector_name, father_or_husband_name, husband (dummy for husband), house_no, age, sex, ac_name, part_no,  year, state, filename, main_town, police_station, mandal, revenue_division, district, pin_code, polling_station_name, polling_station_address, net_electors_male, net_electors_female, net_electors_third_gender, net_electors_total`. 
+The python script takes as input either path to a specific pdf electoral rolls that needs to be parsed or a directory of English language electoral roll pdfs, and produces a CSV with the following columns: `number (top left box in the elector field), id, elector_name, father_or_husband_name, husband (dummy for husband), house_no, age, sex, ac_name, parl_constituency, part_no, year, state, filename, main_town, police_station, mandal, revenue_division, district, pin_code, polling_station_name, polling_station_address, net_electors_male, net_electors_female, net_electors_third_gender, net_electors_total`. 
 
 **Using pdfparser**
 
