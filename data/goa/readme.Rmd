@@ -1,0 +1,60 @@
+## Goa
+
+Basic descriptive statistics about the data. And sanity checks.
+
+```{r load_data}
+goa <- readr::read_csv("goa.csv")
+```
+
+Number of rows:
+
+```{r nrows}
+nrow(goa)
+```
+
+Unique Values in Sex:
+
+```{r unique_vals_in_sex}
+# Unique values in sex
+table(goa$sex)
+```
+
+Summary of Age:
+
+```{r age}
+# Age
+summary(goa$age)
+```
+
+No. of characters in ID:
+```{r length_of_id}
+# Length of ID
+table(nchar(goa$id))
+```
+
+Number of characters in pin code:
+
+```{r nchar_pincode}
+table(nchar(goa$pin_code))
+```
+
+```{r total_electors}
+# Net electors
+sum(with(goa, rowSums(cbind(net_electors_male, net_electors_female), na.rm = T) == net_electors_total), na.rm = T)
+nrow(goa)
+```
+
+No. of characters in elector name and checks around that:
+```{r checks_elector_name_size}
+## Checks that succeeded
+goa[which(nchar(goa$elector_name) == 4), "id"]
+goa[which(nchar(goa$elector_name) == 50), "filename"]
+```
+
+Basic admin. units:
+```{r police_station_mandal_district_main_town}
+table(goa$police_station)
+table(goa$mandal)
+table(goa$district)
+table(goa$main_town)
+```

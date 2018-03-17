@@ -1,12 +1,4 @@
 dev/
-bengali_rolls/
-gujarat_rolls/
-tamil_rolls/
-telugu_rolls/
-kannad_rolls/
-devanagri_rolls/
-image_eng_rolls/
-readable_eng_rolls/
-other_rolls/
+rolls/
 checks/
-data/
+*.csv

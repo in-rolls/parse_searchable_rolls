@@ -1,6 +1,11 @@
 # Parsing Electoral Roll PDFs
 
-[Data](http://dx.doi.org/10.7910/DVN/MUEGDT). Link to Harvard Dataverse.
+The repository provides scripts for parsing the Indian Electoral Roll pdfs and links to the data along with a summary of the issues and some summary statistics for each state.
+
+* [Data](https://github.com/in-rolls/parse_elex_rolls#data)
+* [Scripts](https://github.com/in-rolls/parse_elex_rolls#scripts)
+  - [Readable English Electoral Roll PDFs](https://github.com/in-rolls/parse_elex_rolls#readable-english-electoral-roll-pdfs)
+  - [Readable Hindi Electoral Roll PDFs](https://github.com/in-rolls/parse_elex_rolls#readable-hindi-electoral-roll-pdfs)
 
 -------
 
@@ -8,7 +13,7 @@
 
 The scripts in this repository parse Indian Electoral Rolls. For more information on how to get PDFs of electoral rolls, see https://github.com/in-rolls/electoral_rolls/ 
 
-### Parsing (Readable) English Electoral Roll PDFs
+### Readable English Electoral Roll PDFs
 
 Andaman & Nicobar Islands, Andhra Pradesh, Arunachal Pradesh, Dadra & Nagar Haveli, Daman & Diu, Goa, Jammu & Kashmir, Kerala, Manipur, Meghalaya, Mizoram, Nagaland, NCT OF Delhi, Puducherry, and Sikkim provide electoral rolls in English. Sikkim, Delhi, and Kerala's electoral rolls aren't readable.
 
@@ -68,6 +73,21 @@ optional arguments:
 * [Nagaland](pdfparser/modules/rolls/nagaland.py)
 * [Puducherry](pdfparser/modules/rolls/puducherry.py)
 
+### Readable Hindi Electoral Roll PDFs
+
+**States**
+
+* [Bihar](pdfparser/modules/rolls/bihar.py)
+* [Chandigarh](pdfparser/modules/rolls/chandigarh.py)
+* [Haryana](pdfparser/modules/rolls/haryana.py)
+* [Himachal Pradesh](pdfparser/modules/rolls/himachal.py)
+* [Jammu and Kashmir](pdfparser/modules/rolls/jk_hindi.py)
+* [Jharkhand](pdfparser/modules/rolls/jharkhand.py)
+* [Madhya Pradesh](pdfparser/modules/rolls/madhya_pradesh.py)
+* [Rajasthan](pdfparser/modules/rolls/rajasthan.py)
+* [Uttar Pradesh](pdfparser/modules/rolls/up.py)
+* [Uttarakhand](pdfparser/modules/rolls/uttarakhand.py)
+
 ## Checks
 
 To verify that the electoral rolls have been parsed correctly, we institute a few checks. For English language rolls, we checked:
@@ -95,6 +115,10 @@ To verify that the electoral rolls have been parsed correctly, we institute a fe
 ### Issues
 
 Here are some [issues](issues.md) that we found with the electoral rolls.
+
+### Data
+
+The parsed data are available on the [Harvard Dataverse](http://dx.doi.org/10.7910/DVN/MUEGDT). The data are available only for research purposes. And only if the requester agrees to do their best to protect the privacy of the people and to never sell or share data for commercial gain. For state-wise summary statistics and sanity checks, see state by state folders under [data/](data/).
 
 ## License
 
