@@ -1,4 +1,10 @@
-## Parsing Electoral Roll PDFs
+# Parsing Electoral Roll PDFs
+
+[Data](http://dx.doi.org/10.7910/DVN/MUEGDT). Link to Harvard Dataverse.
+
+-------
+
+## Scripts
 
 The scripts in this repository parse Indian Electoral Rolls. For more information on how to get PDFs of electoral rolls, see https://github.com/in-rolls/electoral_rolls/ 
 
@@ -85,6 +91,10 @@ To verify that the electoral rolls have been parsed correctly, we institute a fe
 ### For native language electoral rolls:
 
 1. we also capitalize on the fact that some states have both native and English language rolls. And where they are available, we have downloaded both. And we can compare some of the columns against each other.
+
+### Issues
+
+Here are some [issues](issues.md) that we found with the electoral rolls.
 
 ## License
 
