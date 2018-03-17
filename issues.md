@@ -2,6 +2,8 @@
 
 Catalog of issues with the electoral roll pdfs
 
+Basically no state is recording 'third gender.' Only puducherry for now.
+
 ### Andaman
 
 ### Daman
@@ -15,9 +17,20 @@ Catalog of issues with the electoral roll pdfs
 
 ### Arunachal
 
+1. People have 0 age
+2. 839 have missing ID numbers
+
+### Manipur
+
+1. People have 0 age
+
 ### Meghalaya
 
 1. One of the district's name in electoral rolls is "..."
+
+### Mizoram
+
+1. One person has age 1
 
 ### Nagaland
 
