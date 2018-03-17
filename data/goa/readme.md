@@ -64,6 +64,18 @@ summary(goa$age)
 ##   18.00   33.00   43.00   45.07   56.00  116.00
 ```
 
+Check if 0 and missing age is from problem in the electoral roll:
+
+
+```r
+goa[which(goa$age == 0), c("id", "filename")]
+```
+
+```
+## # A tibble: 0 x 2
+## # ... with 2 variables: id <chr>, filename <chr>
+```
+
 No. of characters in ID:
 
 ```r
@@ -90,6 +102,25 @@ table(nchar(goa$pin_code))
 ## 1077909
 ```
 
+Are IDs duplicated?
+
+
+```r
+length(unique(goa$id))
+```
+
+```
+## [1] 1077533
+```
+
+```r
+nrow(goa)
+```
+
+```
+## [1] 1077909
+```
+
 
 ```r
 # Net electors
@@ -112,28 +143,101 @@ No. of characters in elector name and checks around that:
 
 ```r
 ## Checks that succeeded
-goa[which(nchar(goa$elector_name) == 4), "id"]
+table(nchar(goa$elector_name))
 ```
 
 ```
-## # A tibble: 1 x 1
-##   id        
-##   <chr>     
-## 1 JMQ2235729
+## 
+##      4      5      6      7      8      9     10     11     12     13 
+##      1      6     36    239   1427  10075  34675  67641  96703 110139 
+##     14     15     16     17     18     19     20     21     22     23 
+## 112361 109139  96103  79468  60577  50337  43012  38758  35456  31259 
+##     24     25     26     27     28     29     30     31     32     33 
+##  25908  20061  14792  10555   7471   5428   4029   2992   2370   1804 
+##     34     35     36     37     38     39     40     41     42     43 
+##   1429   1034    731    544    429    298    227    146     90     76 
+##     44     45     46     47     48     49     50 
+##     46     20      6      7      1      2      1
 ```
 
 ```r
-goa[which(nchar(goa$elector_name) == 50), "filename"]
+goa[which(nchar(goa$elector_name) < 4), "filename"]
 ```
 
 ```
-## # A tibble: 1 x 1
-##   filename        
-##   <chr>           
-## 1 AC032_Part02.pdf
+## # A tibble: 0 x 1
+## # ... with 1 variable: filename <chr>
+```
+
+Does district have a number?
+
+```r
+sum(grepl('[0-9]', goa$district))
+```
+
+```
+## [1] 0
 ```
 
 Basic admin. units:
+
+```r
+table(goa$parl_constituency)
+```
+
+```
+## 
+## 1-North Goa 2-South Goa 
+##      537166      540743
+```
+
+```r
+table(goa$ac_name)
+```
+
+```
+## 
+##       01-Mandrem (General)  02-Pernem (Schedule Cast) 
+##                      31391                      31353 
+##      03-Bicholim (General)         04-Tivim (General) 
+##                      25986                      26596 
+##        05-Mapusa (General)        06-Siolim (General) 
+##                      28835                      28182 
+##       07-Saligao (General)     08-Calangute (General) 
+##                      25950                      24629 
+##      09-Porvorim (General)        10-Aldona (General) 
+##                      24401                      27477 
+##        11-Panaji (General)      12-Taleigao (General) 
+##                      22173                      27802 
+##       13-St.Cruz (General)     14-St. Andre (General) 
+##                      27706                      20861 
+##     15-Cumbarjua (General)          16-Maem (General) 
+##                      25000                      27121 
+##     17-Sanquelim (General)        18-Poriem (General) 
+##                      26204                      30776 
+##        19-Valpoi (General)         20-Priol (General) 
+##                      28866                      25857 
+##         21-Ponda (General)        22-Siroda (General) 
+##                      30599                      28227 
+##       23-Marcaim (General)      24-Mormugao (General) 
+##                      26985                      21430 
+## 25-Vasco-Da-Gama (General)       26-Dabolim (General) 
+##                      35517                      22388 
+##      27-Cortalim (General)         28-Nuvem (General) 
+##                      30469                      28010 
+##       30-Fatorda (General)        31-Margao (General) 
+##                      28892                      28374 
+##      32-Benaulim (General)       33-Navelim (General) 
+##                      28460                      27273 
+##      34-Cuncolim (General)         35-Velim (General) 
+##                      29002                      31178 
+##        36-Quepem (General)     37-Curchorem (General) 
+##                      31296                      25991 
+##     38-Sanvordem (General)       39-Sanguem (General) 
+##                      28329                      25777 
+##      40-Canacona (General) 
+##                      32546
+```
 
 ```r
 table(goa$police_station)
