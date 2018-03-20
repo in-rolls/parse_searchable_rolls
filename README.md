@@ -118,7 +118,20 @@ Here are some [issues](issues.md) that we found with the electoral rolls.
 
 ### Data
 
-The parsed data are available on the [Harvard Dataverse](http://dx.doi.org/10.7910/DVN/MUEGDT). The data are available only for research purposes. And only if the requester agrees to do their best to protect the privacy of the people and to never sell or share data for commercial gain. For state-wise summary statistics and sanity checks, see state by state folders under [data/](data/).
+The parsed data are available on the [Harvard Dataverse](http://dx.doi.org/10.7910/DVN/MUEGDT). For state-wise summary statistics and sanity checks, see state by state folders under [data/](data/).
+
+The data are available only for research purposes. And only if the requester agrees to do their best to protect the privacy of the people and to never sell or share data for commercial gain. 
+
+If you would like access to the electoral rolls, please fill out the following [form](https://goo.gl/forms/CD85MwGW8cBTTJM92).
+
+You will also need to get IRB approval from your university or institution. The IRB-approved proposal should include:
+
+* Case for why the data are necessary
+* Acknowledgment that the data will be kept in a secure environment
+* All the people who will have access to the data
+* That the data will only be used on projects with IRB approval
+* That data won't be shared with people who are not identified in 3.
+* That publications and presentations will not reveal identifying individual information: only statistical summaries will be presented.
 
 ## License
 
