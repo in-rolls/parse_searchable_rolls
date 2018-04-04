@@ -12,10 +12,9 @@ __all__ = ['RollParser']
 
 class RollParser:
 
-    def __init__(self, path, state, output, resume=False):
+    def __init__(self, path, state, lang, output, resume=False):
         try:
-            name = state.split()[0].capitalize()
-            self.reader = getattr(rolls, '%sPDF' % name)
+            self.reader = getattr(getattr(getattr(rolls, state), lang), '%sPDF' % state.capitalize())
         except AttributeError:
             raise ValueError('Unsupported state with name: %s' % state)
         self.pdfs = scanpdfs(path) if isdir(path) else [path]
@@ -48,6 +47,14 @@ class RollParser:
                 # Prepare list of parsed electors as rows for writing
                 rows = []
                 for elector in roll.electors.values():
+                    if elector.deleted:
+                        change = 'deleted'
+                    elif elector.corrected:
+                        change = 'corrected'
+                    elif elector.added:
+                        change = 'added'
+                    else:
+                        change = ''
                     rows.append(OutputRow(
                         number=elector.number,
                         id=elector.id,
@@ -74,7 +81,8 @@ class RollParser:
                         net_electors_male=roll.general.net_male,
                         net_electors_female=roll.general.net_female,
                         net_electors_third_gender=roll.general.net_third,
-                        net_electors_total=roll.general.net_total
+                        net_electors_total=roll.general.net_total,
+                        change=change
                     ))
                 # Write prepared rows of current PDF to output file
                 if rows:
