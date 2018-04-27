@@ -1,0 +1,81 @@
+## Meghalaya
+
+Basic descriptive statistics about the data. And sanity checks.
+
+```{r load_data}
+meghalaya <- readr::read_csv("meghalaya.csv")
+```
+
+Number of rows:
+
+```{r nrows}
+nrow(meghalaya)
+```
+
+Unique Values in Sex:
+
+```{r unique_vals_in_sex}
+# Unique values in sex
+table(meghalaya$sex)
+```
+
+Summary of Age:
+
+```{r age}
+# Age
+summary(meghalaya$age)
+```
+
+Check if 0 and missing age is from problem in the electoral roll:
+
+```{r zero_missing_age}
+meghalaya[which(meghalaya$age == 1), c("id", "filename")]
+```
+
+No. of characters in ID:
+```{r length_of_id}
+# Length of ID
+table(nchar(meghalaya$id))
+```
+
+Number of characters in pin code:
+
+```{r nchar_pincode}
+table(nchar(meghalaya$pin_code))
+```
+
+Are IDs duplicated?
+
+```{r duplicate_ids}
+length(unique(meghalaya$id))
+nrow(meghalaya)
+```
+
+```{r total_electors}
+# Net electors
+sum(with(meghalaya, rowSums(cbind(net_electors_male, net_electors_female), na.rm = T) == net_electors_total), na.rm = T)
+nrow(meghalaya)
+```
+
+No. of characters in elector name and checks around that:
+```{r checks_elector_name_size}
+## Checks that succeeded
+table(nchar(meghalaya$elector_name))
+meghalaya[which(nchar(meghalaya$elector_name) < 4), c("id", "filename")]
+```
+
+Does district have a number?
+```{r district_number}
+sum(grepl('[0-9]', meghalaya$district))
+```
+
+Basic admin. units:
+```{r police_station_mandal_district_main_town}
+table(meghalaya$parl_constituency)
+table(meghalaya$ac_name)
+
+table(meghalaya$police_station)
+table(meghalaya$mandal)
+table(meghalaya$district)
+table(meghalaya$main_town)
+```

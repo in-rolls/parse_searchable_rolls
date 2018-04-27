@@ -81,12 +81,14 @@ Check if 0 and missing age is from problem in the electoral roll:
 
 
 ```r
-mizoram[which(mizoram$age == 0), c("id", "filename")]
+mizoram[which(mizoram$age == 1), c("id", "filename")]
 ```
 
 ```
-## # A tibble: 0 x 2
-## # ... with 2 variables: id <chr>, filename <chr>
+## # A tibble: 1 x 2
+##   id         filename        
+##   <chr>      <chr>           
+## 1 CRG0092387 AC040PART016.pdf
 ```
 
 No. of characters in ID:

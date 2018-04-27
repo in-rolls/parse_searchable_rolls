@@ -35,7 +35,7 @@ nrow(puducherry)
 ```
 
 ```
-## [1] 1870704
+## [1] 935352
 ```
 
 Unique Values in Sex:
@@ -49,7 +49,7 @@ table(puducherry$sex)
 ```
 ## 
 ##       Female         Male Third Gender 
-##       984250       886286          168
+##       492125       443143           84
 ```
 
 Summary of Age:
@@ -86,8 +86,8 @@ table(nchar(puducherry$id))
 
 ```
 ## 
-##       9      10      12      16      17      18 
-##      10 1230646      38  620360   19648       2
+##      9     10     12     16     17     18 
+##      5 615323     19 310180   9824      1
 ```
 
 Number of characters in pin code:
@@ -99,8 +99,8 @@ table(nchar(puducherry$pin_code))
 
 ```
 ## 
-##       6 
-## 1870704
+##      6 
+## 935352
 ```
 
 Are IDs duplicated?
@@ -119,7 +119,7 @@ nrow(puducherry)
 ```
 
 ```
-## [1] 1870704
+## [1] 935352
 ```
 
 
@@ -129,7 +129,7 @@ sum(with(puducherry, rowSums(cbind(net_electors_male, net_electors_female), na.r
 ```
 
 ```
-## [1] 1769868
+## [1] 884934
 ```
 
 ```r
@@ -137,7 +137,7 @@ nrow(puducherry)
 ```
 
 ```
-## [1] 1870704
+## [1] 935352
 ```
 
 No. of characters in elector name and checks around that:
@@ -150,15 +150,15 @@ table(nchar(puducherry$elector_name))
 ```
 ## 
 ##      3      4      5      6      7      8      9     10     11     12 
-##   3280  51848  94412 161068 222164 181862 234300 213046 203206 154998 
+##   1640  25924  47206  80534 111082  90931 117150 106523 101603  77499 
 ##     13     14     15     16     17     18     19     20     21     22 
-## 107302  57248  40076  28670  22208  18198  15766  13270  11464   8852 
+##  53651  28624  20038  14335  11104   9099   7883   6635   5732   4426 
 ##     23     24     25     26     27     28     29     30     31     32 
-##   6930   5190   3884   2956   2238   1556   1282   1030    598    480 
+##   3465   2595   1942   1478   1119    778    641    515    299    240 
 ##     33     34     35     36     37     38     39     40     41     42 
-##    340    304    210    184    102     64     56     30     12     12 
+##    170    152    105     92     51     32     28     15      6      6 
 ##     43     44 
-##      6      2
+##      3      1
 ```
 
 ```r
@@ -166,7 +166,7 @@ puducherry[which(nchar(puducherry$elector_name) < 4), c("id", "filename")]
 ```
 
 ```
-## # A tibble: 3,280 x 2
+## # A tibble: 1,640 x 2
 ##    id               filename     
 ##    <chr>            <chr>        
 ##  1 KXX0226290       eng_22_20.pdf
@@ -179,7 +179,7 @@ puducherry[which(nchar(puducherry$elector_name) < 4), c("id", "filename")]
 ##  8 NPX0082446       eng_28_31.pdf
 ##  9 PY/01/015/063676 eng_01_32.pdf
 ## 10 DGL0189365       eng_01_32.pdf
-## # ... with 3,270 more rows
+## # ... with 1,630 more rows
 ```
 
 Does district have a number?
@@ -201,7 +201,7 @@ table(puducherry$parl_constituency)
 ```
 ## 
 ## 01. PUDUCHERRY (GEN) 
-##              1870704
+##               935352
 ```
 
 ```r
@@ -211,35 +211,35 @@ table(puducherry$ac_name)
 ```
 ## 
 ##           1 . MANNADIPET (GEN)       10 . KAMARAJ NAGAR (GEN) 
-##                          59080                          67008 
+##                          29540                          33504 
 ##             11 . LAWSPET (GEN)             12 . KALAPET (GEN) 
-##                          60718                          63684 
+##                          30359                          31842 
 ##          13 . MUTHIALPET (GEN)          14 . RAJ BHAVAN (GEN) 
-##                          57692                          51264 
+##                          28846                          25632 
 ##             15 . OUPALAM (GEN)          16 . ORLEAMPETH (GEN) 
-##                          53528                          47728 
+##                          26764                          23864 
 ##          17 . NELLITHOPE (GEN)         18 . MUDALIARPET (GEN) 
-##                          64590                          66552 
+##                          32295                          33276 
 ##         19 . ARIANKUPPAM (GEN)         2 . THIRUBHUVANAI (SC) 
-##                          73076                          60830 
+##                          36538                          30415 
 ##            20 . MANAVELY (GEN)              21 . EMBALAM (SC) 
-##                          63520                          63486 
+##                          31760                          31743 
 ##          22 . NETTAPAKKAM (SC)              23 . BAHOUR (GEN) 
-##                          61696                          55994 
+##                          30848                          27997 
 ##            24 . NEDUNGADU (SC)         25 . THIRUNALLAR (GEN) 
-##                          50956                          58178 
+##                          25478                          29089 
 ##      26 . KARAIKAL NORTH (GEN)      27 . KARAIKAL SOUTH (GEN) 
-##                          66780                          63204 
+##                          33390                          31602 
 ## 28 . NERAVY-T.R.PATTINAM (GEN)                29 . MAHE (GEN) 
-##                          59144                          61018 
+##                          29572                          30509 
 ##               3 . OUSSUDU (SC)               30 . YANAM (GEN) 
-##                          57152                          71576 
+##                          28576                          35788 
 ##             4 . MANGALAM (GEN)            5 . VILLIANUR (GEN) 
-##                          70904                          75472 
+##                          35452                          37736 
 ##            6 . OZHUKARAI (GEN)           7 . KADIRGAMAM (GEN) 
-##                          76104                          64404 
+##                          38052                          32202 
 ##         8 . INDIRA NAGAR (GEN)       9 . THATTANCHAVADY (GEN) 
-##                          66954                          58412
+##                          33477                          29206
 ```
 
 ```r
@@ -249,31 +249,31 @@ table(puducherry$police_station)
 ```
 ## 
 ##   Ambagarathur O.P.         Ariankuppam              Bahour 
-##               14610               72036               50590 
+##                7305               36018               25295 
 ##            Cotchery     Danvantri Nagar Dariyalathippa O.P. 
-##               38378              121776               13948 
+##               19189               60888                6974 
 ##        Grand Bazaar             Kalapet            Karaikal 
-##               73238               31716              112720 
+##               36619               15858               56360 
 ##  Karayamputhur O.P.       Katterikuppam       Kirumampakkam 
-##               13024               18264               41118 
+##                6512                9132               20559 
 ##        Korkadu O.P.             Lawspet     Madukkarai O.P. 
-##               26552              118278               18726 
+##               13276               59139                9363 
 ##                Mahe       Mangalam O.P.        Mettupalayam 
-##               21048               35862               67782 
+##               10524               17931               33891 
 ##         Mudaliarpet          Muthialpet           Neduncadu 
-##              115156               51204               21352 
+##               57578               25602               10676 
 ##              Neravy         Nettapakkam          Odiansalai 
-##               33850               31166               41626 
+##               16925               15583               20813 
 ##           Orleanpet             Palloor      Pandakkal O.P. 
-##               94778               30778                9192 
+##               47389               15389                4596 
 ##      Reddiarpalayam      Sedarapet O.P.    Solai Nagar O.P. 
-##               93652                9756               35474 
+##               46826                4878               17737 
 ##       Thavalakuppam        Thirubuvanai         Thirukkanur 
-##               41898               55230               46416 
+##               20949               27615               23208 
 ##         Thirunallar       Thirupattinam           Villenour 
-##               43568               33784              134530 
+##               21784               16892               67265 
 ##               Yanam 
-##               57628
+##               28814
 ```
 
 ```r
@@ -283,9 +283,9 @@ table(puducherry$mandal)
 ```
 ## 
 ##      Bahour    Karaikal        Mahe    Oulgaret  Puducherry Thirunallar 
-##      181176      189128       61018      457284      488686      109134 
+##       90588       94564       30509      228642      244343       54567 
 ##   Villianur       Yanam 
-##      312702       71576
+##      156351       35788
 ```
 
 ```r
@@ -295,7 +295,7 @@ table(puducherry$district)
 ```
 ## 
 ##   Karaikal Puducherry 
-##     298262    1572442
+##     149131     786221
 ```
 
 ```r
@@ -305,221 +305,221 @@ table(puducherry$main_town)
 ```
 ## 
 ##               Abishegapakkam                    Agraharam 
-##                         9794                         7388 
+##                         4897                         3694 
 ##                Akkaraivattam                   Alankuppam 
-##                         6462                         7090 
+##                         3231                         3545 
 ##                Amankoilpathu                 Ambagarathur 
-##                        10030                         9180 
+##                         5015                         4590 
 ##               Ambedkar Nagar                Ammaiyar Koil 
-##                         3542                         5354 
+##                         1771                         2677 
 ##               Andhoniar Koil               Andiyarpalayam 
-##                         5942                         5518 
+##                         2971                         2759 
 ##                   Anna Nagar                 Ariyankuppam 
-##                        10100                        12756 
+##                         5050                         6378 
 ##            Ariyankuppam West                       Ariyur 
-##                        10782                        13014 
+##                         5391                         6507 
 ##              Arumparthapuram                  Ashok Nagar 
-##                        19820                        11268 
+##                         9910                         5634 
 ##                Bahour (East)                Bahour (West) 
-##                         7728                         9968 
+##                         3864                         4984 
 ##          Bharathidasan Nagar                  Brindavanam 
-##                         7084                        13204 
+##                         3542                         6602 
 ##                Calve College                   Cassukadai 
-##                         1292                        10742 
+##                          646                         5371 
 ##                    Cathedral           Chalakkara (North) 
-##                         4232                         5822 
+##                         2116                         2911 
 ##           Chalakkara (South)                 Cherukallayi 
-##                         4368                         1754 
+##                         2184                          877 
 ##                    Chettipet                  Chinnakadai 
-##                         5030                         2472 
+##                         2515                         1236 
 ##                  Choodikotta                  Colas Nagar 
-##                         1418                         8694 
+##                          709                         4347 
 ##                 Debbessanpet      Dhanvantri Nagar JIPMER 
-##                         2078                         2150 
+##                         1039                         1075 
 ##                  Dharmapuram                   Dharmapuri 
-##                         9904                        11532 
+##                         4952                         5766 
 ##                   Earipakkam                     Edatheru 
-##                         4402                         1872 
+##                         2201                          936 
 ##            Ellapillaichavadi                      Embalam 
-##                        11972                         7416 
+##                         5986                         3708 
 ##                     Farampet                    Giriumpet 
-##                         9146                        13948 
+##                         4573                         6974 
 ##                Goubert Nagar                   Govindapet 
-##                         9406                         6184 
+##                         4703                         3092 
 ##      Govt. Quarters, Lawspet                 Ilango Nagar 
-##                         8066                         7076 
+##                         4033                         3538 
 ##                 Indira Nagar                Jawahar Nagar 
-##                        12892                         9420 
+##                         6446                         4710 
 ##                 Kadersulthan                  Kadhirkamam 
-##                         7646                         9204 
+##                         3823                         4602 
 ##               Kakkayanthoppe          Kalitheerthalkuppam 
-##                        15044                        11984 
+##                         7522                         5992 
 ##                  Kalmandabam                Kamaraj Nagar 
-##                        12798                         6670 
+##                         6399                         3335 
 ##            Kanagachettikulam                  Kanakalapet 
-##                         4860                         6568 
+##                         2430                         3284 
 ##                    Kanuvepet             Karikkalampakkam 
-##                         5616                         9766 
+##                         2808                         4883 
 ##               Kariyamanikkam Kariyamputhur Panayadikuppam 
-##                         5666                         8250 
+##                         2833                         4125 
 ##                Karukkangkudi               Karuvadikuppam 
-##                         4398                        16812 
+##                         2199                         8406 
 ##                Katterikuppam                 Keerapalayam 
-##                         8022                        18258 
+##                         4011                         9129 
 ##                   Keezhaiyur               Keezhakasukudy 
-##                         5582                         8774 
+##                         2791                         4387 
 ##                  Keezhamanai               Kirambuthottam 
-##                         3902                         6012 
+##                         1951                         3006 
 ##                Kirumampakkam                     Kodathur 
-##                         9262                         5198 
+##                         4631                         2599 
 ##                    Koilpathu                  Kolathumedu 
-##                        15080                         4100 
+##                         7540                         2050 
 ##                    Kombakkam                  Koodapakkam 
-##                        10736                         9712 
+##                         5368                         4856 
 ##                      Korkadu                   Kothukulam 
-##                         4778                         5020 
+##                         2389                         2510 
 ##                   Kottaimedu           Kottucherry (East) 
-##                        17912                         9256 
+##                         8956                         4628 
 ##           Kottucherry (West)               Koundanpalayam 
-##                         3056                         9522 
+##                         1528                         4761 
 ##                 Krishnavaram           Kudierruppupalayam 
-##                         5642                         6050 
+##                         2821                         3025 
 ##                  Kunichampet                Kurinji Nagar 
-##                         8420                        16802 
+##                         4210                         8401 
 ##                 Kurumbagaram                   Kurumbapet 
-##                         4786                        12644 
+##                         2393                         6322 
 ##                 Kurusukuppam                 Kuruvinatham 
-##                        11734                         9400 
+##                         5867                         4700 
 ##                Kuyavar Nagar                      Lawspet 
-##                        11216                         9906 
+##                         5608                         4953 
 ##                    Madhagadi                 Madhagadipet 
-##                         5518                         9304 
+##                         2759                         4652 
 ##                    Madhakoil             Madukarai (East) 
-##                         3406                         9468 
+##                         1703                         4734 
 ##             Madukarai (West)                 Maideenpalli 
-##                         4262                         8910 
+##                         2131                         4455 
 ##                     Manamedu                      Manapet 
-##                         4774                         9050 
+##                         2387                         4525 
 ##                     Manaveli                     Mangalam 
-##                        41790                         6998 
+##                        20895                         3499 
 ##                    Manjakkal                   Mannadipet 
-##                         3152                         6660 
+##                         1576                         3330 
 ##                 Meenatchipet                 Melakasakudi 
-##                        10896                         6596 
+##                         5448                         3298 
 ##                    Mettacuru                  Mudaliarpet 
-##                        11218                         8142 
+##                         5609                         4071 
 ##                      Mundock                Murungapakkam 
-##                         2652                        13954 
+##                         1326                         6977 
 ##             Muthialpet(East)               Muthirapalayam 
-##                         7618                        14734 
+##                         3809                         7367 
 ##                Nadesan Nagar               Nainarmandapam 
-##                         9644                        24646 
+##                         4822                        12323 
 ##                    Nallambal                    Nallavadu 
-##                         5430                         6804 
+##                         2715                         3402 
 ##                    Nedungadu                   Nellithope 
-##                         7874                        11150 
+##                         3937                         5575 
 ##                Neravy (East)                Neravy (West) 
-##                         2260                         7628 
+##                         1130                         3814 
 ##                Nethaji Nagar                  Nettapakkam 
-##                        12198                         8300 
+##                         6099                         4150 
 ##                     Odiampet                    Oduthurai 
-##                        12552                         8490 
+##                         6276                         4245 
 ##                    Orleanpet                     Oulgaret 
-##                         7656                        23170 
+##                         3828                        11585 
 ##                 Paidikondala              Pakkamudayanpet 
-##                         8300                         9390 
+##                         4150                         4695 
 ##         Palloor (North-East)         Palloor (South-East) 
-##                         6350                         6274 
+##                         3175                         3137 
 ##         Palloor (South-West)          Palloor(North-West) 
-##                         4122                         4418 
+##                         2061                         2209 
 ##              Pandakkal-South             Pandakkal Centre 
-##                         3792                         5236 
+##                         1896                         2618 
 ##              Pandakkal North                  Pannithittu 
-##                         3956                         5586 
+##                         1978                         2793 
 ##                     Parakkal                  Parikkalpet 
-##                         5406                         5724 
+##                         2703                         2862 
 ##    Parimala Mudaliar Thottam                     Pedapudi 
-##                         6238                         4260 
+##                         3119                         2130 
 ##                   Periapalli        Periya Kalapet (East) 
-##                         6300                         3518 
+##                         3150                         1759 
 ##        Periya Kalapet (West)                Periyar Nagar 
-##                        10728                        10888 
+##                         5364                         5444 
 ##                 Perumal Koil               Pethuchettipet 
-##                         3066                        22742 
+##                         1533                        11371 
 ##                       Pettai               Pillai Thottam 
-##                         4882                         9510 
+##                         2441                         4755 
 ##                Pillaichavady              Pillaiyarkuppam 
-##                        12610                         7568 
+##                         6305                         3784 
 ##                    Pillaraya               Pillayarkuppam 
-##                         5262                         8138 
+##                         2631                         4069 
 ##                     Ponpethi               Pooranankuppam 
-##                         2096                         6672 
+##                         1048                         3336 
 ##                       Poovam             Poraiyur Agharam 
-##                         4716                         7276 
+##                         2358                         3638 
 ##                  Pudhukuppam                  Pudupalayam 
-##                         3440                         9804 
+##                         1720                         4902 
 ##           Puliankottai Salai                Rainbow Nagar 
-##                         7442                        25986 
+##                         3721                        12993 
 ##                   Raj Bhavan                 Rajaji Nagar 
-##                         2946                        16126 
+##                         1473                         8063 
 ##            Ramakrishna Nagar               Reddiarpalayam 
-##                         8702                        23694 
+##                         4351                        11847 
 ##                 Sakthi Nagar           Samipillai Thottam 
-##                        11726                        12150 
+##                         5863                         6075 
 ##          Sandhai Pudhukuppam                Sanyasikuppam 
-##                         4002                         3306 
+##                         2001                         1653 
 ##                        Saram                Sathamangalam 
-##                         8998                         6862 
+##                         4499                         3431 
 ##                    Sedarapet                    Seliamedu 
-##                         9756                         7898 
+##                         4878                         3949 
 ##                     Sellipet                       Sellur 
-##                         4234                         7256 
+##                         2117                         3628 
 ##    Sembiapalayam (Nathamedu)                       Sethur 
-##                         4592                         5952 
+##                         2296                         2976 
 ##                Shanmugapuram                Sivaranthagam 
-##                        22688                         4720 
+##                        11344                         2360 
 ##                  Solai Nagar                Sooramangalam 
-##                        11908                         4996 
+##                         5954                         2498 
 ##               Sooriyankuppam                     Sorakudi 
-##                         3822                         8664 
+##                         1911                         4332 
 ##                      Sorapet                   Sulthanpet 
-##                         8348                        13584 
+##                         4174                         6792 
 ##                   Suthukkeni        T.R. Pattinam (North) 
-##                         6240                        12014 
+##                         3120                         6007 
 ##        T.R. Pattinam (South)                   Thalatheru 
-##                        10942                         5650 
+##                         5471                         2825 
 ##               Thattanchavady                Thavalakuppam 
-##                         9672                         8004 
+##                         4836                         4002 
 ##                Thengaithittu                    Thilaspet 
-##                         8708                         9752 
+##                         4354                         4876 
 ##       Thimmanayakkan Palayam                Thirubhuvanai 
-##                         5106                        13742 
+##                         2553                         6871 
 ##                  Thirukanchi                  Thirukkanur 
-##                         6190                         8526 
+##                         3095                         4263 
 ##              Thirumudi Nagar          Thirunallar (North) 
-##                         7214                         8044 
+##                         3607                         4022 
 ##          Thirunallar (South)          Thiruvalluvar Nagar 
-##                         4372                        17922 
+##                         2186                         8961 
 ##            Thiruvandaar Koil               Thiruvettakudy 
-##                         9912                         4584 
+##                         4956                         2292 
 ##               Thondamanatham                   Uruvaiyaru 
-##                         7868                        11092 
+##                         3934                         5546 
 ##                 V.O.C. Nagar  Vadhanur-Puranasingupalayam 
-##                         8646                         6982 
+##                         4323                         3491 
 ##                 Vaithikuppam                    Valatheru 
-##                        11832                        10894 
+##                         5916                         5447 
 ##                      Valavil           Vamba Keerapalayam 
-##                         2298                        10790 
+##                         1149                         5395 
 ##                    Vanarapet                      Vanjore 
-##                        10782                         3374 
+##                         5391                         1687 
 ##                  Varichikudy          Veemacoundanpalayam 
-##                         7992                         9710 
+##                         3996                         4855 
 ##               Veerampattinam                    Veeraveli 
-##                        10148                         4764 
+##                         5074                         2382 
 ##             Viduthalai Nagar                    Villianur 
-##                         8422                        20944 
+##                         4211                        10472 
 ##                 Vinoba Nagar                  Vishnalayam 
-##                        13702                         1944 
+##                         6851                          972 
 ##                  Vizhidhiyur                   Water Tank 
-##                         5108                         5912
+##                         2554                         2956
 ```

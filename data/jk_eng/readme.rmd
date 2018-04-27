@@ -1,0 +1,60 @@
+## Jammu and Kashmir
+
+Basic descriptive statistics about the data. And sanity checks.
+
+```{r load_data}
+jk <- readr::read_csv("jk.csv")
+```
+
+Number of rows:
+
+```{r nrows}
+nrow(jk)
+```
+
+Unique Values in Sex:
+
+```{r unique_vals_in_sex}
+# Unique values in sex
+table(jk$sex)
+```
+
+Summary of Age:
+
+```{r age}
+# Age
+summary(jk$age)
+```
+
+No. of characters in ID:
+```{r length_of_id}
+# Length of ID
+table(nchar(jk$id))
+```
+
+Number of characters in pin code:
+
+```{r nchar_pincode}
+table(nchar(jk$pin_code))
+```
+
+```{r total_electors}
+# Net electors
+sum(with(jk, rowSums(cbind(net_electors_male, net_electors_female), na.rm = T) == net_electors_total), na.rm = T)
+nrow(jk)
+```
+
+No. of characters in elector name and checks around that:
+```{r checks_elector_name_size}
+## Checks that succeeded
+table(nchar(jk$elector_name))
+jk[which(nchar(jk$elector_name) < 4), "filename"]
+```
+
+Basic admin. units:
+```{r police_station_mandal_district_main_town}
+table(jk$police_station)
+table(jk$mandal)
+table(jk$district)
+table(jk$main_town)
+```

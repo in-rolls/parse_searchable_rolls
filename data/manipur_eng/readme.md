@@ -169,23 +169,23 @@ table(nchar(manipur$elector_name))
 ```
 
 ```r
-manipur[which(nchar(manipur$elector_name) < 4), "filename"]
+manipur[which(nchar(manipur$elector_name) < 4), c("id", "filename")]
 ```
 
 ```
-## # A tibble: 2,641 x 1
-##    filename    
-##    <chr>       
-##  1 A0520029.pdf
-##  2 A0580030.pdf
-##  3 A0470026.pdf
-##  4 A0470026.pdf
-##  5 A0470026.pdf
-##  6 A0470026.pdf
-##  7 A0470026.pdf
-##  8 A0470026.pdf
-##  9 A0470026.pdf
-## 10 A0470026.pdf
+## # A tibble: 2,641 x 2
+##    id         filename    
+##    <chr>      <chr>       
+##  1 BWD0310920 A0520029.pdf
+##  2 GJG0201848 A0580030.pdf
+##  3 HGW0195248 A0470026.pdf
+##  4 HGW0198812 A0470026.pdf
+##  5 HGW0533240 A0470026.pdf
+##  6 HGW0194761 A0470026.pdf
+##  7 HGW0539759 A0470026.pdf
+##  8 HGW0194019 A0470026.pdf
+##  9 HGW0197582 A0470026.pdf
+## 10 HGW0536045 A0470026.pdf
 ## # ... with 2,631 more rows
 ```
 

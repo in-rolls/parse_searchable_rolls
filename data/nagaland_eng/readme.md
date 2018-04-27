@@ -34,7 +34,7 @@ nrow(nagaland)
 ```
 
 ```
-## [1] 1140776
+## [1] 1143839
 ```
 
 Unique Values in Sex:
@@ -48,7 +48,7 @@ table(nagaland$sex)
 ```
 ## 
 ## Female   Male 
-## 565287 575489
+## 566769 577070
 ```
 
 Summary of Age:
@@ -61,7 +61,7 @@ summary(nagaland$age)
 
 ```
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##   19.00   30.00   38.00   41.58   51.00  328.00       1
+##   18.00   30.00   38.00   41.57   51.00  328.00       1
 ```
 
 Check if 0 and missing age is from problem in the electoral roll:
@@ -86,7 +86,7 @@ table(nchar(nagaland$id))
 ```
 ## 
 ##       4       5       6       7       8      10      11 
-##     274    1118     281      25       3 1109941       2
+##     274    1118     281      25       3 1113001       2
 ```
 
 Number of characters in pin code:
@@ -108,7 +108,7 @@ length(unique(nagaland$id))
 ```
 
 ```
-## [1] 1110518
+## [1] 1113532
 ```
 
 ```r
@@ -116,7 +116,7 @@ nrow(nagaland)
 ```
 
 ```
-## [1] 1140776
+## [1] 1143839
 ```
 
 
@@ -126,7 +126,7 @@ sum(with(nagaland, rowSums(cbind(net_electors_male, net_electors_female), na.rm 
 ```
 
 ```
-## [1] 1140776
+## [1] 1143839
 ```
 
 ```r
@@ -134,7 +134,7 @@ nrow(nagaland)
 ```
 
 ```
-## [1] 1140776
+## [1] 1143839
 ```
 
 No. of characters in elector name and checks around that:
@@ -147,11 +147,11 @@ table(nchar(nagaland$elector_name))
 ```
 ## 
 ##      1      2      3      4      5      6      7      8      9     10 
-##      1     10   5503  40801  92214 171263 175192 143053 114617  93155 
+##      1     10   5518  40972  92600 172008 175884 143337 114713  93203 
 ##     11     12     13     14     15     16     17     18     19     20 
-##  70917  57625  45766  36372  28787  21860  15445  10844   7203   4504 
+##  70962  57695  45877  36517  28906  21912  15487  10862   7209   4510 
 ##     21     22     23     24     25     26     27     28     29     30 
-##   2561   1432    728    391    204    137     90     43     21     20 
+##   2564   1438    730    391    205    137     90     43     21     20 
 ##     31     32     33     34 
 ##     11      1      4      1
 ```
@@ -161,7 +161,7 @@ nagaland[which(nchar(nagaland$elector_name) < 4), c("id", "filename")]
 ```
 
 ```
-## # A tibble: 5,514 x 2
+## # A tibble: 5,529 x 2
 ##    id         filename        
 ##    <chr>      <chr>           
 ##  1 GVZ0562942 AC007PART057.pdf
@@ -174,7 +174,7 @@ nagaland[which(nchar(nagaland$elector_name) < 4), c("id", "filename")]
 ##  8 FKQ0224337 AC016PART001.pdf
 ##  9 JPS0334466 AC006PART012.pdf
 ## 10 HQZ0483370 AC012PART009.pdf
-## # ... with 5,504 more rows
+## # ... with 5,519 more rows
 ```
 
 Does district have a number?
@@ -196,7 +196,7 @@ table(nagaland$parl_constituency)
 ```
 ## 
 ## 1 , NAGALAND (General)      1 , NAGALAND (ST) 
-##                1113317                  27459
+##                1116247                  27592
 ```
 
 ```r
@@ -206,7 +206,7 @@ table(nagaland$ac_name)
 ```
 ## 
 ## (General)      (ST) 
-##     21881   1118895
+##     21881   1121958
 ```
 
 ```r
@@ -216,27 +216,27 @@ table(nagaland$police_station)
 ```
 ## 
 ##              ABOI          AGHUNATO           AKULUTO            ATOIZU 
-##             10924             14589              8631             15301 
+##             11580             14589              8763             15301 
 ##          BHANDARI         CHANGPANG       CHANGTONGYA          CHAZOUBA 
 ##             17942              2935             16507             26984 
 ##         CHEN TOWN      DIMAPUR EAST DIMAPUR SUB-URBAN      DIMAPUR WEST 
-##              9625             78895             20017             25530 
+##             10214             78895             20017             25530 
 ##          DIPHUPAR         GHATHASHI           KHUZAMA           KIPHIRE 
-##             52656              6307             30219             47693 
+##             52656              6307             30219             47826 
 ##          KOBULONG      KOHIMA NORTH      KOHIMA SOUTH          LONGKHIM 
 ##              9557             43293             37734             30374 
 ##  LONGLENG & TAMLU       MANGKOLEMBA        MEDZIPHEMA            MELURI 
 ##             37362             25139             16840             12126 
 ##    MOKOKCHUNG - 1    MOKOKCHUNG - 2          MON TOWN        NAGINIMORA 
-##             27114             36451             31509             13876 
+##             27114             36451             31555             13980 
 ##            NOKLAK       P.S.JALUKIE         P.S.PEREN          PFUTSERO 
-##             20506             12514             41836             39908 
+##             21170             12514             41836             39908 
 ##              PHEK    PHOMCHING TOWN         PUGHOBOTO             RALAN 
 ##             19859             15601              6655              3959 
 ##             SANIS           SATAKHA          SHAMATOR            SUNGRO 
 ##             13086             15662             28206              7561 
 ##          SURUHUTO             TIZIT         TOBU TOWN          TSEMINYU 
-##             13993             14370             31614             23952 
+##             14732             14370             31614             23952 
 ##          TUENSANG              TULI             WOKHA         ZUNHEBOTO 
 ##             34915             18081             50964             19988
 ```
@@ -250,11 +250,11 @@ table(nagaland$mandal)
 ##                      .               AGHUNATO              AITEPYONG 
 ##                   3708                  14589                   4666 
 ##                AKULUTO               ATHIBUNG                 ATOIZU 
-##                   8631                  12170                  15301 
+##                   8763                  12170                  15301 
 ##               BHANDARI              CHANGPANG                  CHARE 
 ##                  15511                    211                   8280 
 ##               CHAZOUBA           CHEIPHOBOZOU      CHEN SUB-DIVISION 
-##                  27340                  20452                  20406 
+##                  27340                  20452                  21651 
 ##               CHESSORE                CHIZAMI              CHUKITONG 
 ##                   7558                   7921                   6103 
 ##            DHANSIRIPAR        DIMAPUR - SADAR                JAKHAMA 
@@ -266,23 +266,23 @@ table(nagaland$mandal)
 ##            MANGKOLEMBA             MEDZIPHEMA                 MELURI 
 ##                  25139                  19884                  12126 
 ##     MOKOKCHUNG - SADAR                    MON                NIULAND 
-##                  71052                  30983                  14980 
+##                  71052                  31029                  14980 
 ##                 NOKLAK                 NOKSEN                  NSONG 
-##                  20506                  10291                   3234 
+##                  21170                  10291                   3234 
 ##                  PEREN               PFUTSERO           PHEK - SADAR 
 ##                  15237                  31987                  19503 
 ## PHOMCHING SUB-DIVISION              PUGHOBOTO                 PUNGRO 
-##                  15601                  12962                  12718 
+##                  15601                  12962                  12851 
 ##                  RALAN                  SANIS                SATAKHA 
 ##                   4448                  20647                  15662 
 ##          SECHU (ZUBZA)               SHAMATOR                 SITIMI 
 ##                   9949                  10256                  15158 
 ##               SURUHOTO                 TENING              THONOKNYU 
-##                  13993                  12240                  12200 
+##                  14732                  12240                  12200 
 ##     TIZIT SUB-DIVISION      TOBU SUB-DIVISION               TSEMINYU 
 ##                  14370                  31614                  23952 
 ##       TUENSANG - SADAR                   TULI  WAKCHING SUB-DIVISION 
-##                  33107                  32950                  14545 
+##                  33107                  32950                  14649 
 ##          WOKHA - SADAR                WOZHURO              ZUNHEBOTO 
 ##                  39579                   5282                  19988
 ```
@@ -294,11 +294,11 @@ table(nagaland$district)
 ```
 ## 
 ##     COLONY    DIMAPUR    KIPHIRE     KOHIMA   LONGLENG MOKOKCHUNG 
-##        770     192859      47693     133861      37662     132849 
+##        770     192859      47826     133861      37662     132849 
 ##        MON        NAP      PEREN       PHEK  PUGHOBOTO   TUENSANG 
-##     127519        675      54350      98877      12962     113335 
+##     128914        675      54350      98877      12962     113999 
 ##    VILLAGE      WOKHA  ZUNHEBOTO 
-##        309      96447      88164
+##        309      96447      89035
 ```
 
 ```r
@@ -326,7 +326,7 @@ table(nagaland$main_town)
 ##                                  A/SAGHEMI S 
 ##                                          857 
 ##                                     ABOI HQ. 
-##                                         2069 
+##                                         2725 
 ##                                ACHIKUCHU (A) 
 ##                                          566 
 ##                                     AGHULIMI 
@@ -431,6 +431,8 @@ table(nagaland$main_town)
 ##                                          558 
 ##                                       AMBOTO 
 ##                                          202 
+##                             AMIKIORO VILLAGE 
+##                                           49 
 ##                                     AMIPHOTO 
 ##                                          999 
 ##                               AMOSEN VILLAGE 
@@ -525,6 +527,8 @@ table(nagaland$main_town)
 ##                                          165 
 ##                                       ATOIZU 
 ##                                          799 
+##                                   ATUNAKUGHA 
+##                                          245 
 ##                              AVANKHU VILLAGE 
 ##                                           80 
 ##                                      AWOHUMI 
@@ -727,6 +731,8 @@ table(nagaland$main_town)
 ##                                         2170 
 ##                                   CHENWETNYU 
 ##                                         1019 
+##                           CHENWETNYU VILLAGE 
+##                                          295 
 ##                            CHEPOKETA VILLAGE 
 ##                                          601 
 ##                         CHESEZU NASA VILLAGE 
@@ -781,6 +787,8 @@ table(nagaland$main_town)
 ##                                          522 
 ##                            CHINGKAO CHINGNYU 
 ##                                         1263 
+##                   CHINGKAO CHINGPONG VILLAGE 
+##                                          294 
 ##                       CHINGKAO NYAHO VILLAGE 
 ##                                          120 
 ##                            CHINGLANG VILLAGE 
@@ -1503,6 +1511,8 @@ table(nagaland$main_town)
 ##                                          605 
 ##                    KITHOZWU (K.KHEL VISWEMA) 
 ##                                          538 
+##                                KIURO VILLAGE 
+##                                           33 
 ##                                       KIUSAM 
 ##                                          302 
 ##                                   KIUTSUKIUR 
@@ -2568,7 +2578,7 @@ table(nagaland$main_town)
 ##                                 PARA MEDICAL 
 ##                                         1793 
 ##                        PATHSO NOKENG VILLAGE 
-##                                         1828 
+##                                         2492 
 ##                       PATHSO VILLAGE(W/WING) 
 ##                                         1158 
 ##                                PATIZUNG WARD 
@@ -3097,6 +3107,8 @@ table(nagaland$main_town)
 ##                                         1787 
 ##                               SHAMSHANGCHING 
 ##                                          205 
+##                                SHANGNYU TOWN 
+##                                           46 
 ##                             SHANGNYU VILLAGE 
 ##                                          904 
 ##                        SHAULI WARD, LONGLENG 
@@ -3280,7 +3292,7 @@ table(nagaland$main_town)
 ##                                   SURUMI (N) 
 ##                                          768 
 ##                                   SURUMI (S) 
-##                                         1216 
+##                                         1710 
 ##                                       SUTEMI 
 ##                                          440 
 ##                    SUTHOTSU VILLAGE (NAHATO) 
@@ -3567,6 +3579,8 @@ table(nagaland$main_town)
 ##                                          118 
 ##                                      TSUTOHO 
 ##                                          339 
+##                            TSUTOWONG VILLAGE 
+##                                           51 
 ##                               TSUUMA VILLAGE 
 ##                                          302 
 ##                           TUENSANG VILLAGE A 
@@ -3715,6 +3729,8 @@ table(nagaland$main_town)
 ##                                          360 
 ##                                       WAPHUR 
 ##                                          556 
+##                               WAPNYU VILLAGE 
+##                                          104 
 ##                                     WAROMONG 
 ##                                         1255 
 ##                                 WAROMONG-III 
@@ -3966,7 +3982,7 @@ table(nagaland$main_town)
 ##                        ZAPAMI VILLAGE B/WING 
 ##                                          445 
 ##                                      ZAPHUMI 
-##                                          106 
+##                                          238 
 ##                             ZAVACHHI VILLAGE 
 ##                                          287 
 ##                                ZELIANGRONG A 
