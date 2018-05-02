@@ -4,7 +4,7 @@ from collections import namedtuple
 # Environment
 APP_NAME = 'pdfparser'
 APP_DESC = '''\
-Parse PDF Indian electoral rolls to a CSV.'''
+Parse PDF electoral rolls to a CSV.'''
 APP_CMD = APP_NAME.lower()
 APP_PATH = os.path.dirname(__file__)
 with open(os.path.join(APP_PATH, 'VERSION'), 'r') as f:
@@ -25,5 +25,5 @@ OutputRow = namedtuple(
     'OutputRow',
     'number id elector_name father_or_husband_name has_husband house_no age sex ac_name parl_constituency part_no year \
 state filename main_town police_station mandal revenue_division district pin_code polling_station_name \
-polling_station_address net_electors_male net_electors_female net_electors_third_gender net_electors_total'
+polling_station_address net_electors_male net_electors_female net_electors_third_gender net_electors_total change'
 )

@@ -2,8 +2,8 @@
 
 pycmd=$(which python3 2> /dev/null)
 if ! test ${pycmd}; then
-	echo "Requires 'python3'"
-	exit 1
+    echo "Requires 'python3'"
+    exit 1
 fi
 
 ! test "$PDFPARSER_PATH" && PDFPARSER_PATH=`dirname $0`
