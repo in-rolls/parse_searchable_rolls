@@ -1,9 +1,9 @@
-from .base import Reader, Patterns, Elector
+from ..base import Reader, Patterns
 
-__all__ = ['ArunachalPDF']
+__all__ = ['BiharPDF']
 
 
-class ArunachalPatterns(Patterns):
+class BiharPatterns(Patterns):
     part_patterns = dict(
         main=r'Page2(.*?)(?=Summary of Electors)',
         addition=None,
@@ -25,7 +25,7 @@ class ArunachalPatterns(Patterns):
         mainTown=r'[A-Z]+[0-9]+ - [^\n]+\n([^\na-z]+)',
         policeStation=r'[A-Z]+[0-9]+ - [^\n]+\n[^\n]+\n[^\n]+\n([^\n]+)',
         mandal=r'(?<=\n)([^\n]+)(?=\n\d{6}\n)',
-        district=r'(?<=Net Electors\n)\d+\n\d+\n[^\n]+\n([^\na-z]+)',
+        district=r'\n\d+\.[^a-z]+\n([A-Z ]+)\n',
         stationName=r'\d+ +([^\na-z]+)(?=\n[A-Z]+[0-9]+ - [^\n]+\n)',
         stationAddress=r'\n\d+\.[^\na-z]+\n[^\na-z]+\n([^a-z]+)(?=\n[^\n]+\n\d+)',
         netMale=r'(?<=\n\d{6}\n)(\d+)',
@@ -44,12 +44,8 @@ class ArunachalPatterns(Patterns):
     )
 
 
-class ArunachalElector(Elector):
-    skiptxts = ['DELETED']
-
-
-class ArunachalPDF(Reader):
-    pat = ArunachalPatterns()
+class BiharPDF(Reader):
+    pat = BiharPatterns()
 
     def __init__(self, path):
-        super(ArunachalPDF, self).__init__(path, cls_elector=ArunachalElector)
+        super(BiharPDF, self).__init__(path)

@@ -17,10 +17,10 @@ class MeghalayaPatterns(Patterns):
     )
 
     general_patterns = dict(
-        state=r'(?<=\n)S\d+ *- *([^\n]+)',
+        state=r'\bS\d+ *- *([^\n]+)',
         acName=r'\n\d+\n(\d+ ?- ?[^a-z\n]+(\s*\([\w ]+\))?)\n',
         pcName=r'\n(\d+ *- *[^a-z\n()]+ +\([^a-z\n()]+\))\n',
-        partNo=r'Net Electors\n\d+\n(\d+)',
+        partNo=[r'Part No *: *(\d+)', r'Net Electors\n\d+\n(\d+)'],
         year=r'Year of Revision\n: (\d+)',
         mainTown=r'\n\d{6}\n[^\n]+\n(.*?)(?=\n[^\n]+\nPostOffice\n)',
         mandal=None,

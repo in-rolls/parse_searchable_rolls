@@ -228,7 +228,9 @@ class Reader:
                 task(item)
 
     def parse_elector(self, text, part):
-        elector = self.cls_elector(text, part)
+        added = part == 'addition'
+        corrected = part == 'correction'
+        elector = self.cls_elector(text, part, added=added, corrected=corrected)
         if elector.has_data():
             self.electors[elector.number] = elector
 
@@ -239,7 +241,7 @@ class Reader:
                 found = key
                 break
         if found:
-            self.electors.pop(found)
+            self.electors[found].deleted = True
 
 
 class Elector:
@@ -248,10 +250,13 @@ class Elector:
     husband = None
     merged_patterns = False
 
-    def __init__(self, text, part, patterns):
+    def __init__(self, text, part, patterns, added=False, corrected=False):
         self.pat = patterns
         self._text = text
         self._part = part
+        self.added = added
+        self.corrected = corrected
+        self.deleted = False
         self.number = self.find('number')
         self.id = self.find('id')
         self.house = self.find('house')
@@ -276,8 +281,12 @@ class Elector:
         if self.skiptxts is not None:
             try:
                 for txt in self.skiptxts:
-                    if txt in self._text:
-                        return True
+                    if type(txt) == re._pattern_type:
+                        if txt.findall(self._text):
+                            return True
+                    else:
+                        if txt in self._text:
+                            return True
             except TypeError:
                 pass
         return False

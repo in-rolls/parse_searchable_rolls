@@ -41,7 +41,8 @@ class ParsePDF:
 
     def __parse(self):
         assert isxml(self.xml_file)
-        tree = ElementTree.parse(self.xml_file)
+        with open(self.xml_file, 'rb') as fp:
+            tree = ElementTree.parse(fp)
         pages = tree.findall('page')
         for page in pages:
             self.pages.append(

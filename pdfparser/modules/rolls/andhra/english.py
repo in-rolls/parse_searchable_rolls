@@ -1,5 +1,6 @@
 import re
-from collections import deque
+from collections import deque, Counter
+from operator import itemgetter
 from ..base import Reader, Patterns, Elector
 
 __all__ = ['AndhraPDF']
@@ -123,6 +124,43 @@ class AndhraElector(Elector):
                 left.append(odd)
             return True
 
+        def parts_to_words():
+            ret = []
+            for i in parts:
+                ret.extend(i.split())
+            return ret
+
+        def refine_words(n=1, oddcase=False):
+            refined = [(i, w) for i, w in enumerate(words) if len(w) > n]
+            skips = [(i, w) for i, w in enumerate(words) if len(w) <= n]
+            s = len(refined) // 2
+            if len(refined) % 2 == 0:
+                lt = refined[:s]  # list of left refined words with indexes
+                rt = refined[s:]  # list of right refined words with indexes
+                middle = lt[-1][0]  # position of separation
+                for i in skips:
+                    if i[0] > middle:
+                        rt.append(i)
+                    else:
+                        lt.append(i)
+                left.extend([i[1] for i in sorted(lt, key=itemgetter(0))])
+                right.extend([i[1] for i in sorted(rt, key=itemgetter(0))])
+                return True
+            if oddcase:
+                s += 1
+                lt = refined[:s]
+                rt = refined[s:]
+                middle = lt[-1][0]
+                for i in skips:
+                    if i[0] > middle:
+                        rt.append(i)
+                    else:
+                        lt.append(i)
+                left.extend([i[1] for i in sorted(lt, key=itemgetter(0))])
+                right.extend([i[1] for i in sorted(rt, key=itemgetter(0))])
+                return True
+            return False
+
         names = self.find('name', alter=False)
         parts = names.split('\n')
         count = len(parts)
@@ -158,6 +196,24 @@ class AndhraElector(Elector):
                     rule_2_2(True) or \
                     rule_less_win(True) or \
                     rule_ele_win()
+        elif count > 4:
+            words = parts_to_words()
+            counter = Counter(parts)
+            common = counter.most_common(1)
+            common_word = common[0][0]
+            common_count = common[0][1]
+            if common_count == 2:
+                if words[-1] == common_word:
+                    stop = words.index(common_word) + 1
+                    left.extend(words[:stop])
+                    right.extend(words[stop:])
+                elif words[0] == common_word:
+                    stop = words[1:].index(common_word) + 1
+                    left.extend(words[:stop])
+                    right.extend(words[stop:])
+            else:
+                if not refine_words(n=1) and not refine_words(n=2) and not refine_words(n=2, oddcase=True):
+                    raise NotImplementedError('Unable to parse elector\'s name: %s' % parts)
         else:
             raise NotImplementedError('Unable to parse elector\'s name: %s' % parts)
 

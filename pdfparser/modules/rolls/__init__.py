@@ -1,31 +1,32 @@
-from .andhra import AndhraPDF
-from .andaman import AndamanPDF
-from .arunachal import ArunachalPDF
-from .dadra import DadraPDF
-from .daman import DamanPDF
-from .goa import GoaPDF
-from .jk import JkPDF
-from .manipur import ManipurPDF
-from .meghalaya import MeghalayaPDF
-from .nagaland import NagalandPDF
-from .mizoram import MizoramPDF
-from .puducherry import PuducherryPDF
+import sys
 from .errors import RollParseError
+from . import andaman
+from . import andhra
+from . import arunachal
+from . import dadra
+from . import daman
+from . import goa
+from . import jk
+from . import manipur
+from . import meghalaya
+from . import mizoram
+from . import nagaland
+from . import puducherry
 
 __all__ = [
-    'AndhraPDF',
-    'AndamanPDF',
-    'ArunachalPDF',
-    'DadraPDF',
-    'DamanPDF',
-    'GoaPDF',
-    'JkPDF',
-    'ManipurPDF',
-    'MeghalayaPDF',
-    'NagalandPDF',
-    'MizoramPDF',
-    'PuducherryPDF',
-    'RollParseError'
+    'RollParseError',
+    'andaman',
+    'andhra',
+    'arunachal',
+    'dadra',
+    'daman',
+    'goa',
+    'jk',
+    'manipur',
+    'meghalaya',
+    'mizoram',
+    'nagaland',
+    'puducherry'
 ]
 
-ALL_STATES = [i[:-3] for i in __all__ if i.endswith('PDF')]
+states = {s: getattr(sys.modules[__name__], s).__all__ for s in __all__ if not s.endswith('Error')}
