@@ -1,0 +1,61 @@
+## Andaman
+
+Basic descriptive statistics about the data. And sanity checks.
+
+```{r load_data}
+andaman <- readr::read_csv("andaman.csv")
+```
+
+Number of rows:
+
+```{r nrows}
+nrow(andaman)
+```
+
+Unique Values in Sex:
+
+```{r unique_vals_in_sex}
+# Unique values in sex
+table(andaman$sex)
+```
+
+Summary of Age:
+
+```{r age}
+# Age
+summary(andaman$age)
+```
+
+No. of characters in ID:
+```{r length_of_id}
+# Length of ID
+table(nchar(andaman$id))
+```
+
+Number of characters in pin code:
+
+```{r nchar_pincode}
+table(nchar(andaman$pin_code))
+```
+
+```{r total_electors}
+# Net electors
+sum(with(andaman, rowSums(cbind(net_electors_male, net_electors_female), na.rm = T) == net_electors_total), na.rm = T)
+nrow(andaman)
+```
+
+No. of characters in elector name and checks around that:
+```{r checks_elector_name_size}
+## Checks that succeeded
+table(nchar(andaman$elector_name))
+andaman[which(nchar(andaman$elector_name) < 4), "filename"]
+```
+
+Basic admin. units:
+```{r parl_police_station_mandal_district_main_town}
+table(andaman$parl_constituency)
+table(andaman$police_station)
+table(andaman$mandal)
+table(andaman$district)
+table(andaman$main_town)
+```

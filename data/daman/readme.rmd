@@ -1,0 +1,81 @@
+## Daman and Diu
+
+Basic descriptive statistics about the data. And sanity checks.
+
+```{r load_data}
+daman <- readr::read_csv("daman.csv")
+```
+
+Number of rows:
+
+```{r nrows}
+nrow(daman)
+```
+
+Unique Values in Sex:
+
+```{r unique_vals_in_sex}
+# Unique values in sex
+table(daman$sex)
+```
+
+Summary of Age:
+
+```{r age}
+# Age
+summary(daman$age)
+```
+
+Check if 0 and missing age is from problem in the electoral roll:
+
+```{r zero_missing_age}
+daman[which(daman$age == 0), c("id", "filename")]
+```
+
+No. of characters in ID:
+```{r length_of_id}
+# Length of ID
+table(nchar(daman$id))
+```
+
+Number of characters in pin code:
+
+```{r nchar_pincode}
+table(nchar(daman$pin_code))
+```
+
+Are IDs duplicated?
+
+```{r duplicate_ids}
+length(unique(daman$id))
+nrow(daman)
+```
+
+```{r total_electors}
+# Net electors
+sum(with(daman, rowSums(cbind(net_electors_male, net_electors_female), na.rm = T) == net_electors_total), na.rm = T)
+nrow(daman)
+```
+
+No. of characters in elector name and checks around that:
+```{r checks_elector_name_size}
+## Checks that succeeded
+table(nchar(daman$elector_name))
+daman[which(nchar(daman$elector_name) < 4), "filename"]
+```
+
+Does district have a number?
+```{r district_number}
+sum(grepl('[0-9]', daman$district))
+```
+
+Basic admin. units:
+```{r police_station_mandal_district_main_town}
+table(daman$parl_constituency)
+table(daman$ac_name)
+
+table(daman$police_station)
+table(daman$mandal)
+table(daman$district)
+table(daman$main_town)
+```

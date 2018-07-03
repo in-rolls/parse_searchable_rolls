@@ -1,0 +1,84 @@
+## Arunachal Pradesh
+
+Basic descriptive statistics about the data. And sanity checks.
+
+```{r load_data}
+arunachal <- readr::read_csv("arunachal.csv")
+```
+
+Number of rows:
+
+```{r nrows}
+nrow(arunachal)
+```
+
+Unique Values in Sex:
+
+```{r unique_vals_in_sex}
+# Unique values in sex
+table(arunachal$sex)
+```
+
+Summary of Age:
+
+```{r age}
+# Age
+summary(arunachal$age)
+```
+
+Check if 0 and missing age is from problem in the electoral roll:
+
+```{r zero_missing_age}
+arunachal[which(arunachal$age == 0), c("id", "filename")]
+```
+
+No. of characters in ID:
+```{r length_of_id}
+# Length of ID
+table(nchar(arunachal$id))
+```
+
+Number of characters in pin code:
+
+```{r nchar_pincode}
+table(nchar(arunachal$pin_code))
+```
+
+Are IDs duplicated?
+
+```{r duplicate_ids}
+length(unique(arunachal$id))
+nrow(arunachal)
+a <- table(arunachal[!is.na(arunachal$id), c("id")])
+head(a[rev(order(a))])
+```
+
+```{r total_electors}
+# Net electors
+sum(with(arunachal, rowSums(cbind(net_electors_male, net_electors_female), na.rm = T) == net_electors_total), na.rm = T)
+nrow(arunachal)
+```
+
+No. of characters in elector name and checks around that:
+```{r checks_elector_name_size}
+## Checks that succeeded
+table(nchar(arunachal$elector_name))
+arunachal[which(nchar(arunachal$elector_name) < 4), "filename"]
+```
+
+Does district have a number?
+```{r district_number}
+sum(grepl('[0-9]', arunachal$district))
+```
+
+Basic admin. units:
+```{r police_station_mandal_district_main_town}
+table(arunachal$parl_constituency)
+table(arunachal$ac_name)
+
+table(arunachal$police_station)
+table(arunachal$mandal)
+table(arunachal$district)
+arunachal[which(arunachal$district == "2.YORKODOM"), "filename"]
+table(arunachal$main_town)
+```
