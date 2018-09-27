@@ -17,7 +17,7 @@ The scripts in this repository parse Indian Electoral Rolls. For more informatio
 
 Andaman & Nicobar Islands, Andhra Pradesh, Arunachal Pradesh, Dadra & Nagar Haveli, Daman & Diu, Goa, Jammu & Kashmir, Kerala, Manipur, Meghalaya, Mizoram, Nagaland, NCT OF Delhi, Puducherry, and Sikkim provide electoral rolls in English. Sikkim, Delhi, and Kerala's electoral rolls aren't readable.
 
-The format of the rolls is similar but not the same so we write a separate scripts for each, relying on some common functions like [pdfparser/rolls/base.py](pdfparser/rolls/base.py), etc.
+The format of the rolls is similar but not the same, so we write a separate scripts for each, relying on some common functions like [pdfparser/rolls/base.py](pdfparser/rolls/base.py), etc.
 
 **Requirements**
 
@@ -92,9 +92,9 @@ optional arguments:
 
 To verify that the electoral rolls have been parsed correctly, we institute a few checks. For English language rolls, we checked:
 
-1. If age a reasonable number?
+1. Is age a reasonable number?
 2. How many characters are there in 'ID'? 
-3. How many characters does pincode have?
+3. How many characters are there in pincode?
 4. How many characters does elector_name have?
 5. What unique values does the sex field have? 
 6. What unique values does main_town, district, ac_name, mandal, etc. have? 
@@ -104,7 +104,7 @@ To verify that the electoral rolls have been parsed correctly, we institute a fe
 
 1. For 18 of the 34 states on which we have data, we scraped metadata about polling stations. For instance, https://github.com/in-rolls/electoral_rolls/tree/master/kerala has a CSV that captures the metadata from the website. Some of the columns we parse can be checked against that. Addition data from https://github.com/in-rolls/poll-station-metadata can potentially also be used.
 
-2. The electoral rolls have some totals within them. We scrape those. For instance, total number of women, men, etc. And we can re-derive those numbers from the scraped columns. We check for that.
+2. The electoral rolls have some totals within them. We scrape those. For instance, the total number of women, men, etc. And we can re-derive those numbers from the scraped columns. We check for that.
 
 3. Second parsing script and tallying results against each other.
 
@@ -118,7 +118,7 @@ Here are some [issues](issues.md) that we found with the electoral rolls.
 
 ### Data
 
-The parsed data are available on the [Harvard Dataverse](http://dx.doi.org/10.7910/DVN/MUEGDT). For state-wise summary statistics and sanity checks, see state by state folders under [data/](data/).
+The parsed data are available on the [Harvard Dataverse](http://dx.doi.org/10.7910/DVN/MUEGDT). For state wise summary statistics and sanity checks, see state by state folders under [data/](data/).
 
 The data are available only for research purposes. And only if the requester agrees to do their best to protect the privacy of the people and to never sell or share data for commercial gain. 
 
