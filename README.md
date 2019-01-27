@@ -60,18 +60,18 @@ optional arguments:
 
 **States**
 
-* [Andaman and Nicobar Islands](pdfparser/modules/rolls/andaman.py)
-* [Andhra Pradesh](pdfparser/modules/rolls/andhra.py)
-* [Arunachal Pradesh](pdfparser/modules/rolls/arunachal.py)
-* [Dadra and Nagar Haveli](pdfparser/modules/rolls/dadra.py)
-* [Daman and Diu](pdfparser/modules/rolls/daman.py)
-* [Goa](pdfparser/modules/rolls/goa.py)
-* [Jammu and Kashmir](pdfparser/modules/rolls/jk.py)
-* [Manipur](pdfparser/modules/rolls/manipur.py)
-* [Meghalaya](pdfparser/modules/rolls/meghalaya.py)
-* [Mizoram](pdfparser/modules/rolls/mizoram.py)
-* [Nagaland](pdfparser/modules/rolls/nagaland.py)
-* [Puducherry](pdfparser/modules/rolls/puducherry.py)
+* [Andaman and Nicobar Islands](pdfparser/modules/rolls/andaman/)
+* [Andhra Pradesh](pdfparser/modules/rolls/andhra/)
+* [Arunachal Pradesh](pdfparser/modules/rolls/arunachal/)
+* [Dadra and Nagar Haveli](pdfparser/modules/rolls/dadra/)
+* [Daman and Diu](pdfparser/modules/rolls/daman/)
+* [Goa](pdfparser/modules/rolls/goa/)
+* [Jammu and Kashmir](pdfparser/modules/rolls/jk/)
+* [Manipur](pdfparser/modules/rolls/manipur/)
+* [Meghalaya](pdfparser/modules/rolls/meghalaya/)
+* [Mizoram](pdfparser/modules/rolls/mizoram/)
+* [Nagaland](pdfparser/modules/rolls/nagaland/)
+* [Puducherry](pdfparser/modules/rolls/puducherry/)
 
 ### Readable Hindi Electoral Roll PDFs
 
