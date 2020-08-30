@@ -73,11 +73,14 @@ optional arguments:
 * [Nagaland](pdfparser/modules/rolls/nagaland/)
 * [Puducherry](pdfparser/modules/rolls/puducherry/)
 
-### Readable Hindi Electoral Roll PDFs
+### Unreadable Hindi Electoral Roll PDFs
 
 **States**
 
-* [Bihar](pdfparser/modules/rolls/bihar.py)
+* [Bihar](https://github.com/in-rolls/parse_bihar_rolls)
+
+### Readable Hindi Electoral Roll PDFs
+
 * [Chandigarh](pdfparser/modules/rolls/chandigarh.py)
 * [Haryana](pdfparser/modules/rolls/haryana.py)
 * [Himachal Pradesh](pdfparser/modules/rolls/himachal.py)
