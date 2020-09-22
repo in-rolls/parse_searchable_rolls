@@ -1,21 +1,23 @@
 # Parsing Electoral Roll PDFs
 
-The repository provides scripts for parsing the Indian Electoral Roll pdfs and links to the data along with a summary of the issues and some summary statistics for each state.
+The repository provides scripts for parsing searchable Indian Electoral Roll pdfs and links to the data along with a summary of the issues and some summary statistics for each state.
 
 * [Data](https://github.com/in-rolls/parse_elex_rolls#data)
 * [Scripts](https://github.com/in-rolls/parse_elex_rolls#scripts)
-  - [Searchable English Electoral Roll PDFs](https://github.com/in-rolls/parse_elex_rolls#readable-english-electoral-roll-pdfs)
-  - [Unsearchable Electoral Roll PDFs](https://github.com/in-rolls/parse_unsearchable_rolls)
+  - [Searchable English Electoral Roll PDFs](https://github.com/in-rolls/parse_elex_rolls#searchable-english-electoral-roll-pdfs)
+* [Tests](https://github.com/in-rolls/parse_elex_rolls#tests)
+
+Scripts for parsing unsearchable electoral rolls are posted [here](https://github.com/in-rolls/parse_unsearchable_rolls).
 
 -------
 
-## Scripts
+### Data
 
-The scripts in this repository parse Indian Electoral Rolls. For more information on how to get PDFs of electoral rolls, see https://github.com/in-rolls/electoral_rolls/
+For more information on how to get PDFs of electoral rolls, see https://github.com/in-rolls/electoral_rolls/
 
-### Readable English Electoral Roll PDFs
+### Parsing Searchable English Electoral Roll PDFs
 
-Andaman & Nicobar Islands, Andhra Pradesh, Arunachal Pradesh, Dadra & Nagar Haveli, Daman & Diu, Goa, Jammu & Kashmir, Kerala, Manipur, Meghalaya, Mizoram, Nagaland, NCT OF Delhi, Puducherry, and Sikkim provide electoral rolls in English. Sikkim, Delhi, and Kerala's electoral rolls aren't readable.
+12 Indian states and Union Territories provide searchable rolls:  Andaman & Nicobar Islands, Andhra Pradesh, Arunachal Pradesh, Dadra & Nagar Haveli, Daman & Diu, Goa, Jammu & Kashmir, Manipur, Meghalaya, Mizoram, Nagaland, and Puducherry. They are all in English.
 
 The format of the rolls is similar but not the same, so we write a separate scripts for each, relying on some common functions like [pdfparser/rolls/base.py](pdfparser/rolls/base.py), etc.
 
@@ -73,11 +75,7 @@ optional arguments:
 * [Nagaland](pdfparser/modules/rolls/nagaland/)
 * [Puducherry](pdfparser/modules/rolls/puducherry/)
 
-### Unsearchable Electoral Roll PDFs
-
-For scripts for parsing unsearchable electoral rolls, see [here](https://github.com/in-rolls/parse_unsearchable_rolls)
-
-## Checks
+### Tests
 
 To verify that the electoral rolls have been parsed correctly, we institute a few checks. For English language rolls, we checked:
 
@@ -89,7 +87,7 @@ To verify that the electoral rolls have been parsed correctly, we institute a fe
 6. What unique values does main_town, district, ac_name, mandal, etc. have?
 7. Do the numbers in total_electors field match up?
 
-### Future checks:
+#### Future Tests
 
 1. For 18 of the 34 states on which we have data, we scraped metadata about polling stations. For instance, https://github.com/in-rolls/electoral_rolls/tree/master/kerala has a CSV that captures the metadata from the website. Some of the columns we parse can be checked against that. Addition data from https://github.com/in-rolls/poll-station-metadata can potentially also be used.
 
@@ -97,9 +95,7 @@ To verify that the electoral rolls have been parsed correctly, we institute a fe
 
 3. Second parsing script and tallying results against each other.
 
-### For native language electoral rolls:
-
-1. we also capitalize on the fact that some states have both native and English language rolls. And where they are available, we have downloaded both. And we can compare some of the columns against each other.
+4. Capitalize on the fact that some states have both native and English language rolls. And where they are available, we have downloaded both. And we can compare some of the columns against each other.
 
 ### Issues
 
