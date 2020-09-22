@@ -1,4 +1,4 @@
-# Parsing Electoral Roll PDFs
+# Parsing Searchable Electoral Roll PDFs
 
 The repository provides scripts for parsing searchable Indian Electoral Roll pdfs and links to the data along with a summary of the issues and some summary statistics for each state.
 
