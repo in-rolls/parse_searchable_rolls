@@ -101,6 +101,17 @@ To verify that the electoral rolls have been parsed correctly, we institute a fe
 
 Here are some [issues](issues.md) that we found with the electoral rolls.
 
+### Other Scripts
+
+We have a separate set of scripts (Python notebooks) for the following states:
+
+* [Chandigarh](scripts/chandigarh.ipynb)
+* [Haryana](scripts/haryana.ipynb)
+* [Himachal Pradesh](scripts/himachal-tabula-py.ipynb)
+* [Jharkhand](scripts/jharkhand-tabular-py.ipynb)
+
+They produce elector level data but don't have other metadata as that is unreadable. There are some other coding issues which mean there are some other errors in the output.  
+
 ### Data
 
 The parsed data are available on the [Harvard Dataverse](http://dx.doi.org/10.7910/DVN/MUEGDT). For state wise summary statistics and sanity checks, see state by state folders under [data/](data/).
