@@ -62,8 +62,8 @@ def get_first_page_data(path, fn):
     start = 'िपन कोड'
     end = '\n\nमतदान के  की हैिसयत'
     mandal_values = ''.join(re.findall(start + '.*?\n(.*?)' + end, text, re.DOTALL)).split('\n')
-    # if len(mandal_values) < 9:
-    #     breakpoint()
+    if len(mandal_values) < 9:
+        mandal_values = ('','','','','','','','' )
 
     # Part number
     po_key = 'भाग संख्याः'
@@ -146,16 +146,42 @@ def pdf_to_csv(path, fn):
                     bs = bs[-9:]
 
                 if len(bs) > 8 < 12:
-                    if re.match('\d+', bs[-1]):
+                    # Check deleted
+                    deleted = ''
+                    if 'ET ED' in bs[-2]:
+                        rows.append({
+                            'number': bs[-5],
+                            'id': bs[-6],
+                            'elector_name': '',
+                            'father_or_husband_name': '',
+                            'house_no': '',
+                            'age': '',
+                            'sex': '',
+                            'supplementary': '',
+                            'deleted': 'True'
+                        })
+                        continue
+
+                    if len(bs) == 10 and bs[-1] == '#':
+                        bs[-2] = '#' + bs[-2]
+                        bs = bs[:-1]
+
+                    if re.match('#?\d+', bs[-1]):
+                        try:
+                            bs[-6].split(':')[-1]
+                        except:
+                            breakpoint()
+
                         rows.append({
                             'number': bs[-1],
                             'id': bs[-2],
                             'elector_name': bs[-6].split(':')[-1],
                             'father_or_husband_name': bs[-5].split(':')[-1],
-                            'house_no': bs[-8],
+                            'house_no': bs[-7],
                             'age': bs[-3],
                             'sex': bs[-4],
-                            'supplementary': ''
+                            'supplementary': '',
+                            'deleted': deleted
                         })
 
                     elif re.match('\d+', bs[-3]):
@@ -172,7 +198,8 @@ def pdf_to_csv(path, fn):
                                     'house_no': bs[0],
                                     'age': bs[-5],
                                     'sex': bs[3],
-                                    'supplementary': 'yes'
+                                    'supplementary': 'True',
+                                    'deleted': deleted
                                 })
                             else:
                                 rows.append({
@@ -183,7 +210,8 @@ def pdf_to_csv(path, fn):
                                     'house_no': bs[-3],
                                     'age': '',
                                     'sex': '',
-                                    'supplementary': 'yes'
+                                    'supplementary': 'True',
+                                    'deleted': deleted
                                 })
 
                         elif re.match('\d+', bs[-3]):
@@ -195,14 +223,16 @@ def pdf_to_csv(path, fn):
                                 'house_no': bs[-7],
                                 'age': bs[-3],
                                 'sex': bs[-4],
-                                'supplementary': 'yes'
+                                'supplementary': 'True',
+                                'deleted': deleted
                             })
+
 
     # Add data to row
     [row.update(first_page_data) for row in rows]
 
     df = pd.DataFrame(rows)
-    df.to_csv(f'{OUTPUT_PATH}/{fn}.csv')
+    df.to_csv(f'{OUTPUT_PATH}/{fn}.csv', index = False, header=True)
 
 
 def main():
