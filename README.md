@@ -11,10 +11,6 @@ Scripts for parsing unsearchable electoral rolls are posted [here](https://githu
 
 -------
 
-### Data
-
-For more information on how to get PDFs of electoral rolls, see https://github.com/in-rolls/electoral_rolls/
-
 ### Parsing Searchable English Electoral Roll PDFs
 
 12 Indian states and Union Territories provide searchable rolls:  Andaman & Nicobar Islands, Andhra Pradesh, Arunachal Pradesh, Dadra & Nagar Haveli, Daman & Diu, Goa, Jammu & Kashmir, Manipur, Meghalaya, Mizoram, Nagaland, and Puducherry. They are all in English.
@@ -128,6 +124,10 @@ You will also need to get IRB approval from your university or institution. The 
 * That the data will only be used on projects with IRB approval
 * That data won't be shared with people who are not identified in 3.
 * That publications and presentations will not reveal identifying individual information: only statistical summaries will be presented.
+
+#### Underlying Data
+
+For more information on how to get PDFs of electoral rolls, see https://github.com/in-rolls/electoral_rolls/ You can access the data from Harvard Dataverse at: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OG47IV
 
 ## License
 
