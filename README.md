@@ -2,10 +2,9 @@
 
 The repository provides scripts for parsing searchable Indian Electoral Roll pdfs and links to the data along with a summary of the issues and some summary statistics for each state.
 
-* [Data](https://github.com/in-rolls/parse_elex_rolls#data)
-* [Scripts](https://github.com/in-rolls/parse_elex_rolls#scripts)
-  - [Searchable English Electoral Roll PDFs](https://github.com/in-rolls/parse_elex_rolls#searchable-english-electoral-roll-pdfs)
-* [Tests](https://github.com/in-rolls/parse_elex_rolls#tests)
+* [Data](https://github.com/in-rolls/parse_searchable_rolls#data)
+* [Scripts](https://github.com/in-rolls/parse_searchable_rolls#scripts)
+* [Tests](https://github.com/in-rolls/parse_searchable_rolls#tests)
 
 Scripts for parsing unsearchable electoral rolls are posted [here](https://github.com/in-rolls/parse_unsearchable_rolls).
 
