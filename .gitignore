@@ -4,3 +4,5 @@ checks/
 *.csv
 apps/
 *.7z
+.github/.DS_Store
+.DS_Store
