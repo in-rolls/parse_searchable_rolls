@@ -131,3 +131,11 @@ For more information on how to get PDFs of electoral rolls, see https://github.c
 ## License
 
 The scripts are released under the [MIT License](https://opensource.org/licenses/MIT).
+
+## 🔗 Adjacent Repositories
+
+- [in-rolls/electoral_rolls](https://github.com/in-rolls/electoral_rolls) — PDFs of Indian Electoral Rolls
+- [in-rolls/elector_count](https://github.com/in-rolls/elector_count) — Estimate the total number of electors in a state by counting the number of pages in all the electoral rolls
+- [in-rolls/google_vision_ocr](https://github.com/in-rolls/google_vision_ocr) — Using Google Vision API to Get Text From (Unreadable) Electoral Rolls
+- [in-rolls/poll-station-metadata](https://github.com/in-rolls/poll-station-metadata) — Metadata on Polling Stations, including Officers, data on the building, and link to electoral rolls (some inactive)
+- [in-rolls/local_elections_kerala](https://github.com/in-rolls/local_elections_kerala) — Kerala Local Government Seat Reservation Data and Winner Attributes
